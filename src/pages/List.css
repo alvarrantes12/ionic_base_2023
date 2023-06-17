@@ -1,0 +1,18 @@
+.Ion__Card {
+    background-color: rgb(52, 65, 85);
+}
+.Ion__Card__Title{
+    color: cadetblue;
+}
+
+.Ion__Card__SubTitle{
+    color: aquamarine;
+}
+
+.Ion__Card__Content{
+    color: rgb(160, 95, 95);
+}
+
+.Ion_Button{
+    color: black;
+}
