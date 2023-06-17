@@ -1,0 +1,44 @@
+import axios from "axios";
+import {useEffect, useState } from "react";
+
+function ApiMethods(url: any){
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+      const config = {
+          headers: {
+              "Accept": "application/json",
+              "content-type": "application/json" 
+          }
+      }
+
+      setLoading(true);
+      axios.get(url, config)
+          .then((response) => {setData(response.data) })
+          .catch((err) => {setError(error)})
+          .finally(() => {setLoading(false)})
+
+  }, [url])
+
+  const refetch = () => {
+      const config = {
+          headers:{
+              "Accept": "application/json",
+              "Content-Type": "application/json"
+          }
+      }
+
+      setLoading(true);
+      axios.post(url, {name: "ionic", breed: "tech", pedigree: true, owner_id: 1}, config)
+      .then((response) => {setData(response.data) })
+      .catch((err) => { setError(err) })
+      .finally(() => {setLoading(false) })
+  }
+
+  return { data, loading, error, refetch }
+
+}
+
+export default ApiMethods;
