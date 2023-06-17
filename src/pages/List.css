@@ -1,0 +1,18 @@
+.Ion__Card {
+    background-color: black;
+}
+
+.Ion__Card__Title {
+    color: green;
+    text-align: center;
+    text-rendering: geometricPrecision;
+}
+
+.Ion__Card__SubTitle {
+    color: yellow;
+    text-align: right;
+}
+
+.Ion__Card__Content {
+    color: red;
+}
