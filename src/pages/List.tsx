@@ -15,10 +15,11 @@ import {
 } from "@ionic/react";
 
 import ApiMethods from '../commons/ApiMethods';
+import { environment } from '../environments/environment.dev';
 
 const List: React.FC = () => {
 
-  const {data, refetch} = ApiMethods('http://localhost:3000/pets');
+  const {data, refetch} = ApiMethods(`${environment.apiEndpoint}/pets`);
 
   if(!data){
     return <h1>Cargando...</h1>
@@ -42,10 +43,7 @@ const List: React.FC = () => {
                   </IonCardHeader>
               <IonCardContent className='Ion__Card__Content'>Mi dueño es: {pet.owner.first_name}</IonCardContent>
               </IonCard>
-
-
             )
-
           })}
           <IonButton  className='Ion__Button' expand="block" color="danger" onClick={refetch}>
             Agregar
