@@ -1,0 +1,22 @@
+.Ion__Card {
+    background-color: rgb(173, 173, 173);
+}
+
+.Ion__Card__Title {
+    color: rgb(71, 65, 65);
+    text-align: center;
+}
+
+.Ion__Card__Subtitle {
+    color: yellow;
+    text-align: right;
+}
+
+.Ion__Card__Content {
+    color: green;
+}
+
+.Ion__Button {
+    color: black;
+    background-color: red;
+}
