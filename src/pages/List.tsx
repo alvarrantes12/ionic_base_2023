@@ -12,12 +12,13 @@ import {
    IonCardContent,
    IonButton
 } from "@ionic/react";
+import { enviroment } from '../enviroments/enviroment.dev';
 
 import ApiMethods from '../commons/ApiMethods';
 
 const List: React.FC = () => {
 
-  const { data, refetch } = ApiMethods('http://localhost:3000/pets');
+  const { data, refetch } = ApiMethods(`${enviroment.apiEndpoint}/pets`);
 
   if (!data) {
     return <h1>Cargando...</h1>
