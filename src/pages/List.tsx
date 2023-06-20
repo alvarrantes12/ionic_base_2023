@@ -15,10 +15,10 @@ import {
 
 } from '@ionic/react'
 import ApiMethods from '../commons/ApiMethods';
+import { environment } from '../environments/environment.dev';
 
 const List: React.FC = () => {
-
-  const { data, refetch } = ApiMethods('http://localhost:3000/pets')
+  const { data, refetch } = ApiMethods(`${environment.apiEndpoint}/pets`);
 
   if(!data){
     return <h1>Cargando Informacion...</h1>
