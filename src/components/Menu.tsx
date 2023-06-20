@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { heartOutline, heartSharp } from 'ionicons/icons';
+import { heartOutline, heartSharp, listCircleOutline} from 'ionicons/icons';
 import './Menu.css';
 
 interface AppPage {
@@ -27,8 +27,14 @@ const appPages: AppPage[] = [
     url: '/pages/List',
     iosIcon: heartOutline,
     mdIcon: heartSharp
-  }
-];
+  },
+  {
+    title: 'Formulario',
+    url: '/pages/form',
+    iosIcon: listCircleOutline,
+    mdIcon: listCircleOutline
+  },
+]
 
 const Menu: React.FC = () => {
   const location = useLocation();

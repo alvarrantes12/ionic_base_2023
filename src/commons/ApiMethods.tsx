@@ -32,13 +32,28 @@ function ApiMethods(url: any) {
 
         setLoading(true);
         axios
-            .post(url, { name: "IONIC", owner_id: 1, pedigree: true, breed: 'Pitbull' }, config)
+            .post(url, { name: "Ionic", breed: 'Pitbull', pedigree: true, owner_id: 1}, config)
             .then((response) => { setData(response.data); })
             .catch((err) => { setError(err); })
             .finally(() => { setLoading(false); });
     };
 
-    return { data, loading, error, refetch }
+    const putMethod = (id: any, name: any) => {
+        const config = {
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        }
+
+        setLoading(true);
+        axios.put(`${url}/${id}`, { name: name }, config)
+            .then((response) => { setData(response.data); })
+            .catch((err) => { setError(err); })
+            .finally(() => { setLoading(false); });
+    }
+
+    return { data, loading, error, refetch, putMethod }
 
 }
 
