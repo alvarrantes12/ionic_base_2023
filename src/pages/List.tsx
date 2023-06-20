@@ -1,3 +1,4 @@
+
 import './List.css';
 import {
   IonPage,
@@ -15,9 +16,10 @@ import {
 
 import ApiMethods from '../commons/ApiMethods';
 
-const List: React.FC = () => {
+import { environment } from '../environment/environment.dev';{}
 
-  const {data, refetch} = ApiMethods('http://localhost:3000/pets');
+const List: React.FC = () => {
+  const {data, refetch} = ApiMethods('${environment.apiEndpoint}/pets');
 
   if (!data) {
     return <h1>Cargando...</h1>
