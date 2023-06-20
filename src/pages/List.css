@@ -8,7 +8,7 @@
 }
 
 .Ion__Card__Subtitle {
-    color: black;
+    color: yellow;
     text-align: right;
 }
 
@@ -16,5 +16,5 @@
     color: green;
 }
 
-.Ion__Button (
+.Ion_Button (
 )

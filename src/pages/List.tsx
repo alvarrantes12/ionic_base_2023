@@ -15,9 +15,11 @@ import {
 
 import ApiMethods from '../commons/ApiMethods';
 
+import { environment } from '../environments/environment.dev';
+
 const List: React.FC = () => {
 
-  const {data, refetch} = ApiMethods('http://localhost:3000/pets');
+  const {data, refetch} = ApiMethods(`${environment.apiEndpoint}/pets`);
 
   if (!data) {
     return <h1>Cargando...</h1>
@@ -36,11 +38,11 @@ const List: React.FC = () => {
             return (
               <IonCard className='Ion__Card'>
                 <IonCardHeader>
-                  <IonCardTitle className='Ion_Card_Title'>Nombre: {pet.name}</IonCardTitle>
-                  <IonCardSubtitle className='Ion_Card_SubTitle'>Raza: {pet.breed}</IonCardSubtitle>
+                  <IonCardTitle className='Ion__Card__Title'>Nombre: {pet.name}</IonCardTitle>
+                  <IonCardSubtitle className='Ion__Card__Subtitle'>Raza: {pet.breed}</IonCardSubtitle>
                 </IonCardHeader>
 
-                <IonCardContent className='Ion_Card_Content'>Mi dueño es: {pet.owner.first_name}</IonCardContent>
+                <IonCardContent className='Ion__Card__Content'>Mi dueño es: {pet.owner.first_name}</IonCardContent>
               </IonCard>
             )
           })}
@@ -55,4 +57,4 @@ const List: React.FC = () => {
 
 };
 
-export default List;
+export default List;
