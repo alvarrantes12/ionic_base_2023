@@ -17,11 +17,12 @@ import {
   IonButton
 } from "@ionic/react";
 import ApiMethods from '../commons/ApiMethods';
+import { environment } from '../environments/enviroment.dev';
 
 
 const List: React.FC = () => {
 
-  const {data, refetch} = ApiMethods('http://localhost:3000/pets')
+  const {data, refetch} = ApiMethods(`${environment.apiEndpoint}/pets`)
 
   if(!data){
     

@@ -37,7 +37,21 @@ function ApiMethods(url: any) {
 
     }
 
-    return{ data, loading, error, refetch }
+    const putMetod = (id: any, name: any) =>{
+        const config ={
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        }
+        setLoading(true);
+        axios.put(`${url}/${id}`, {name: name}, config)
+            .then((response) => {setData(response.data)})
+            .catch((err) => { setError(err) })
+            .finally(() => { setLoading(false) })
+    }
+
+    return{ data, loading, error, refetch, putMetod }
 }
 
 export default ApiMethods;
