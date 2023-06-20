@@ -8,36 +8,52 @@ function ApiMethods(url: any){
 
   useEffect(() => {
       const config = {
-          headers: {
-              "Accept": "application/json",
-              "content-type": "application/json" 
-          }
+				headers: {
+					"Accept": "application/json",
+					"content-type": "application/json" 
+				}
       }
 
       setLoading(true);
       axios.get(url, config)
-          .then((response) => {setData(response.data) })
-          .catch((err) => {setError(error)})
-          .finally(() => {setLoading(false)})
+				.then((response) => {setData(response.data) })
+				.catch((err) => {setError(error)})
+				.finally(() => {setLoading(false)})
 
   }, [url])
 
   const refetch = () => {
-      const config = {
-          headers:{
-              "Accept": "application/json",
-              "Content-Type": "application/json"
-          }
-      }
+		const config = {
+			headers:{
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			}
+		}
 
-      setLoading(true);
-      axios.post(url, {name: "ionic", breed: "tech", pedigree: true, owner_id: 1}, config)
-      .then((response) => {setData(response.data) })
-      .catch((err) => { setError(err) })
-      .finally(() => {setLoading(false) })
+		setLoading(true);
+		axios.post(url, {name: "ionic", breed: "tech", pedigree: true, owner_id: 1}, config)
+		.then((response) => {setData(response.data) })
+		.catch((err) => { setError(err) })
+		.finally(() => {setLoading(false) })
   }
 
-  return { data, loading, error, refetch }
+  const putMethod = (id: any, name: any) => {
+    const config = {
+			headers:{
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			}
+    }
+
+    setLoading(true);
+    axios.put(`${url}/${id}`, {name: name}, config)
+			.then((response) => { setData(response.data) })
+			.catch((err) => { setError(err) })
+			.finally(() => { setLoading(false) })
+
+  }
+
+  return { data, loading, error, refetch, putMethod }
 
 }
 
