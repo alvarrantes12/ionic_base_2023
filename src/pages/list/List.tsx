@@ -11,11 +11,12 @@ import {
   IonCardSubtitle,
   IonCardContent,
   IonButton
-} from "@ionic/react";
-import ApiMethods from '../commons/ApiMethods';
+} from '@ionic/react';
+import ApiMethods from '../../commons/ApiMethods';
+import { environment } from '../../environments/environment.dev';
 
 const List: React.FC = () => {
-  const { data, refetch } = ApiMethods('http://localhost:3000/pets');
+  const { data, refetch } = ApiMethods(`${environment.apiEndpoint}/pets`);
   if (!data){
     return <h1> Cargando información</h1>
   } else {
@@ -33,10 +34,10 @@ const List: React.FC = () => {
             return(
             <IonCard className= 'Ion__Card'>
               <IonCardHeader>
-                  <IonCardTitle className= 'Ion__Card__Title'>Nombre {pet.name} </IonCardTitle>
-                  <IonCardSubtitle className= 'Ion__Card__SubTitle'>Raza {pet.breed}</IonCardSubtitle>
+                  <IonCardTitle className= 'Ion__Card__Title'> Nombre {pet.name} </IonCardTitle>
+                  <IonCardSubtitle className= 'Ion__Card__SubTitle'> Raza {pet.breed}</IonCardSubtitle>
               </IonCardHeader>
-              <IonCardContent className= 'Ion__Card__Content'>Dueño de la mascota {pet.owner.first_name}</IonCardContent>
+              <IonCardContent className= 'Ion__Card__Content'> Dueño de la mascota {pet.owner.first_name}</IonCardContent>
             </IonCard>
             )
         })}

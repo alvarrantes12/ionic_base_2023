@@ -1,5 +1,5 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 
  function ApiMethods (url: any){
@@ -10,8 +10,8 @@ import { useEffect, useState } from "react";
 	useEffect (() => {
 	    const config = {
 		    headers: {
-			    "Accept": "application/json",
-			    "Content-Type": "application/json"
+			    'Accept': 'application/json',
+			    'Content-Type': 'application/json'
 		    }
 	    }
 
@@ -26,7 +26,7 @@ import { useEffect, useState } from "react";
     const refetch = () => {
         const config = {
             headers: {
-                "Accept": "application/json",
+                "Accept": 'application/json',
                 "Content-Type": "application/json"
             }
         }
@@ -34,10 +34,26 @@ import { useEffect, useState } from "react";
         setLoading(true);
         axios.post(url, {name: "Ionic1", breed: "Tech1", pedigree:true, owner_id: 1}, config)
             .then((response) => {setData(response.data) })
-            .cath((err) => {setError(err) })
+            .catch((err) => {setError(err) })
             .finally(() => {setLoading(false) })
     }
-    return {data, loading, error, refetch}
+
+    const putMethod = (id: any, name: any) => {
+        const config = {
+		    headers: {
+			    "Accept": "application/json",
+			    "Content-Type": "application/json"
+		    }
+        }
+
+        setLoading(true);
+        axios.put(`${url}/${id}`, {name: name}, config)
+            .then((response) => { setData(response.data) })
+            .catch((err) => { setError(err) })
+            .finally (() => { setLoading (false) })
+    }
+
+    return {data, loading, error, refetch, putMethod}
 }
 
 export default ApiMethods;
